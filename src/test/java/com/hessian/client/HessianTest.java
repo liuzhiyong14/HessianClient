@@ -21,9 +21,13 @@ public class HessianTest {
 
 	@Autowired
 	IUserService userService;
-
+	
 	@Test
 	public void hessianTest() {
+		
+		String token = userService.generatorToken("liuzhiyong14");
+		userService.setToken(token);
+		
 		String result = userService.hello("china");
 		String json = JSONObject.toJSONString(userService.getById(3));
 
